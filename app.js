@@ -62,11 +62,9 @@ const naverLogin = async function(){
         // moyoplan 도메인 클릭
         await page.click('#app > div > main > div > div.container.py-0 > div.row.mt-5.mb-12.no-gutters > div > div > div > table > tbody > tr > td:nth-child(2) > a')
 
-        await page.click('#app > div > main > div > div:nth-child(2) > div:nth-child(2) > div > div.row.mt-8.pb-12.justify-space-between > div.hidden-sm-and-down.py-0.col.col-3 > div > div > div:nth-child(2) > div.v-list-group__header.v-list-item.v-list-item--link.theme--light > div.v-list-item__icon.v-list-group__header__append-icon > i')
-        
+        await page.click('#app > div > main > div > div:nth-child(2) > div:nth-child(2) > div > div.row.mt-8.pb-12.justify-space-between > div.hidden-sm-and-down.py-0.col.col-3 > div > div > div:nth-child(2) > div.v-list-group__header.v-list-item.v-list-item--link.theme--light > div.v-list-item__icon.v-list-group__header__append-icon > i')        
         await page.click('#app > div > main > div > div:nth-child(2) > div:nth-child(2) > div > div.row.mt-8.pb-12.justify-space-between > div.hidden-sm-and-down.py-0.col.col-3 > div > div > div.v-list-group.primary--text.text--darken-2.v-list-group--active.v-list-group--no-action.primary--text > div.v-list-group__items > div > a:nth-child(1) > div > div > div')
 
-        console.log("cookie!!!!: "+cookie);
         
         // response = await page.waitForResponse(response => response.url().includes('/api-console/report/diagnosis/meta/') && response.status() === 200);
         // bodyJson = await response.json();
@@ -102,6 +100,8 @@ const naverLogin = async function(){
 
         let resultData = result.data;
         
+        console.log("================================================================PC+Mobile================================================================================================")
+        console.log(JSON.stringify(resultData));
 
 
         path = "/api-console/report/expose/"+encId+"?site=https:%2F%2Fwww.moyoplan.com&period=90&device=pc&topN=10"
@@ -129,7 +129,12 @@ const naverLogin = async function(){
         });
 
         resultData = result.data;
+
+
+        console.log("================================================================PC================================================================================================")
+        console.log(JSON.stringify(resultData));
         
+
 
         path = "/api-console/report/expose/"+encId+"?site=https:%2F%2Fwww.moyoplan.com&period=90&device=mo&topN=10"
         header = {};
@@ -158,11 +163,10 @@ const naverLogin = async function(){
         resultData = result.data;
 
 
-
+        console.log("================================================================Mobile================================================================================================")
+        console.log(JSON.stringify(resultData));
+        
         // postData = '{"osType":"WEB","email":"'+email+'","password":"'+password+'","refreshToken":null}'
-
-
-       
 
         // result = await axios({
         //     method:'POST',
@@ -170,8 +174,6 @@ const naverLogin = async function(){
         //     data:postData,
         //     headers:header
         // });
-
-
 
     } catch (error) {
         console.log(error);
