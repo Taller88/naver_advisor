@@ -6,6 +6,7 @@ let context = null;
 let page = null;
 
 const definePlaywight = async function(){
+    
     console.log("definePlaywight init!");
     browser = await chromium.launch({headless:false});
     context = await browser.newContext();
@@ -19,7 +20,6 @@ const naverLogin = async function(){
     try {
         // await page.goto('https://nid.naver.com/nidlogin.login');
         await page.goto('https://searchadvisor.naver.com/');
-
 
         await page.click('#app > div > main > div > div:nth-child(1) > header > div > div.hidden-sm-and-down.d-md-flex.no-gutters > div > div.hidden-sm-and-down.flex-shrink-1.ml-3 > button');
         await page.waitForSelector('#app > div > main > div > div:nth-child(1) > header > div > div.hidden-sm-and-down.d-md-flex.no-gutters > div > div.hidden-sm-and-down.flex-shrink-1.ml-3 > button');
@@ -55,6 +55,7 @@ const naverLogin = async function(){
             }
             route.continue();
           });
+
 
         // '웹 마스터 도구' 클릭
         await page.click('#app > div > main > div > div:nth-child(1) > header > div > div.hidden-sm-and-down.d-md-flex.no-gutters > a:nth-child(2)')
@@ -130,7 +131,6 @@ const naverLogin = async function(){
 
         resultData = result.data;
 
-
         console.log("================================================================PC================================================================================================")
         console.log(JSON.stringify(resultData));
         
@@ -198,10 +198,12 @@ const naverLogin = async function(){
 
     // });
 
+    console.log(process.cwd());
 
     console.log("playwright init!");
     await naverLogin();
     console.log("playwright end!");
+    console.log(process.cwd());
 
 })()
 
