@@ -205,6 +205,8 @@ const naverLogin = async function(){
     } catch (error) {
         console.log(error);
         console.log("playwright naverLogin error");
+        await sendToSlack("searchAd", result.body,400);
+        
         return {
             statusCode:400,
             body:error.message
