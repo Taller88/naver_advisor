@@ -6,17 +6,9 @@
   "bin": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "pkg --targets node14-macos-x64 --assets node_modules/playwright/lib/browser_server/**/*.js app.js"
+    "build": "pkg --experimental-vm-modules --targets node16-macos-x64 app.js"
   },
   "pkg": {
-    "options": "--no-snapshot",
-    "assets": [
-      "node_modules/**"
-    ],
-    "scripts": [
-      "app.js"
-    ],
-    "targets": ["node16-macos-x64"]
   },
   "author": "jjw",
   "license": "MIT",
