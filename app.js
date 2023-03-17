@@ -183,24 +183,16 @@ const naverLogin = async function(){
 
 (async () => {
     console.log("init!");
+    
+    // playwright init!
     await definePlaywight();
     
-    // page.route('https://searchadvisor.naver.com/api/auth/login-token', async (route, req) => {
-
-    //     console.log("route!!!!!!!!!!!!!!")
-    //     const response = await req.response();
-    //     console.log(response)
-    //     const json = await response.json();
-        
-
-    //     console.log(json)
-    //     console.log("route!!!!!!!!!!!!!! json ")
-
-    // });
 
     console.log(process.cwd());
 
     console.log("playwright init!");
+    
+    // 실제 데이터 스크래핑하는 부분
     await naverLogin();
     console.log("playwright end!");
     console.log(process.cwd());
