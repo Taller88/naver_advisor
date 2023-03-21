@@ -1,8 +1,8 @@
 exports.sendToSlack = async (channel, message, status)=>{
     const axios = require("axios");
     const notifyMnoScrapingResult = "https://hooks.slack.com/services/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"
-    const notifyMsaferScrapingResult = "https://hooks.slack.com/services/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";
-    const naverSearchScrapingResult = "https://hooks.slack.com/services/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";
+    const notifyMsaferScrapingResult = "https://hooks.slack.com/services/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";
+    const naverSearchScrapingResult = "https://hooks.slack.com/services/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";
     const map = {
         "mno":notifyMnoScrapingResult,
         "msafer":notifyMsaferScrapingResult,
@@ -21,10 +21,10 @@ exports.sendToSlack = async (channel, message, status)=>{
     result = await axios({
         method:'POST',
         url:map[channel],
-        data:{
-            'text':text
-        }
+        // headers: { "Content-Type": "application/json"} ,
+        data:{"channel": "#notify-msafer-scraping-result", "text":text}
     });
+
     return;
 
 }

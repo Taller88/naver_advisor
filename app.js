@@ -255,6 +255,7 @@ const naverLogin = async function(){
             await sendToSlack("searchAd", "Naver searchAdvisor DB insert 에러",400);
         }else{
             console.log(status+" DB insert success");
+            // await sendToSlack("searchAd", "test",200);
         }
     
 
