@@ -36,13 +36,13 @@ const naverLogin = async function(){
         */
 
         // await browser.close();
-        let response = await page.waitForResponse(response => response.url().includes('api/auth/login-token') && response.status() === 200);
+        let response = await page.waitForResponse(response => response.url().includes('api/auth/login-token') && response.status() === 200, {timeout:600000});
         let bodyJson = await response.json();
         const encId = bodyJson["userData"]["enc_id"];
         console.log("encId: "+encId);
 
         // 로그인 성공까지 대기!
-        await page.waitForSelector('#app > div > main > div > div:nth-child(1) > header > div > div.hidden-sm-and-down.d-md-flex.no-gutters > a:nth-child(2)', {timeout: 300000});
+        await page.waitForSelector('#app > div > main > div > div:nth-child(1) > header > div > div.hidden-sm-and-down.d-md-flex.no-gutters > a:nth-child(2)', {timeout: 1200000});
         let cookie = "";
 
         await context.route("**/*", (route, request) => {
