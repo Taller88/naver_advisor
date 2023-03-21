@@ -108,7 +108,7 @@ const naverLogin = async function(){
 
             let resultData = result.data;
             
-            console.log("================================================================PC+Mobile================================================================================================")
+            console.log("Contents: PC+Mobile 스크래핑 로딩중..")
             let data = resultData.items[0];
             data["contents"] = "PCMobile"
             // console.log(JSON.stringify(data));
@@ -142,7 +142,7 @@ const naverLogin = async function(){
 
             resultData = result.data;
 
-            console.log("================================================================PC================================================================================================")
+            console.log("Contents:  PC 스크래핑 로딩중..")
             data = resultData.items[0];
             data["contents"] = "PC"
             // console.log(JSON.stringify(data));
@@ -176,7 +176,7 @@ const naverLogin = async function(){
             resultData = result.data;
 
 
-            console.log("================================================================Mobile================================================================================================")
+            console.log("Contents: Mobile 스크래핑 로딩중..")
             data = resultData.items[0];
             data["contents"] = "mobile"
             // console.log(JSON.stringify(data));
@@ -249,7 +249,13 @@ const naverLogin = async function(){
             data:postData
         });
 
-        console.log(result);
+        const status = result.status;
+        if(status!=200){
+            console.log(status);
+            await sendToSlack("searchAd", "Naver searchAdvisor DB insert 에러",400);
+        }else{
+            console.log(status+" DB insert success");
+        }
     
 
     }else{
