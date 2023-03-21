@@ -1,8 +1,8 @@
 exports.sendToSlack = async (channel, message, status)=>{
     const axios = require("axios");
     const notifyMnoScrapingResult = "https://hooks.slack.com/services/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"
-    const notifyMsaferScrapingResult = "https://hooks.slack.com/services/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";
-    const naverSearchScrapingResult = "https://hooks.slack.com/services/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";
+    const notifyMsaferScrapingResult = "https://hooks.slack.com/services/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";
+    const naverSearchScrapingResult = "https://hooks.slack.com/services/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";
     const map = {
         "mno":notifyMnoScrapingResult,
         "msafer":notifyMsaferScrapingResult,
