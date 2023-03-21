@@ -234,12 +234,23 @@ const naverLogin = async function(){
     console.log(process.cwd());
 
     console.log("playwright init!");
-    const result = await naverLogin();
+    let result = await naverLogin();
     console.log("playwright end!");
     if(result.statusCode==200){
         // DB 넣는 api 요청
-        console.log(JSON.stringify(result));
+        console.log(JSON.stringify(result.body));
+        const moyoHost = "https://www.moyoplan.com";
+        const postData = result.body;
 
+        result = await axios({
+            method:'POST',
+            headers: { "Content-Type": `application/json`} ,
+            url:moyoHost+'/api/v1/moyo/naver-search-advisor',
+            data:postData
+        });
+
+        console.log(result);
+    
 
     }else{
         await sendToSlack("searchAd", result.body,400);
