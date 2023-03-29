@@ -111,6 +111,8 @@ const naverLogin = async function(){
             console.log("Contents: PC+Mobile 스크래핑 로딩중..")
             let data = resultData.items[0];
             data["contents"] = "PCMobile"
+            data["latestDate"] = resultData["meta"]["latestDate"]
+            
             // console.log(JSON.stringify(data));
             res.push(data);
 
@@ -144,6 +146,8 @@ const naverLogin = async function(){
 
             console.log("Contents:  PC 스크래핑 로딩중..")
             data = resultData.items[0];
+            data["latestDate"] = resultData["meta"]["latestDate"]
+
             data["contents"] = "PC"
             // console.log(JSON.stringify(data));
             res.push(data);
@@ -179,6 +183,8 @@ const naverLogin = async function(){
             console.log("Contents: Mobile 스크래핑 로딩중..")
             data = resultData.items[0];
             data["contents"] = "mobile"
+            data["latestDate"] = resultData["meta"]["latestDate"]
+
             // console.log(JSON.stringify(data));
             res.push(data);
 
